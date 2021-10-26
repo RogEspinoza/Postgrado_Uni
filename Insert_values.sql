@@ -11,7 +11,7 @@ values(
 'Nicaragua',
 1,
 'respinoza',
-'2021-10-26'
+GETDATE()
 )
 
 insert into dbo.TblPais(
@@ -24,7 +24,7 @@ values(
 'Costa Rica',
 1,
 'respinoza',
-'2021-10-26'
+GETDATE()
 )
 
 insert into dbo.TblPais(
@@ -37,7 +37,7 @@ values(
 'Panama',
 1,
 'respinoza',
-'2021-10-26'
+GETDATE()
 )
 
 --select * from dbo.tblpasajero
@@ -65,9 +65,9 @@ values(
 '1992-07-17',
 '88811809',
 'rogespinoza1992@gmail.com',
-1,
+13,
 'respinoza',
-'2021-10-26'
+GETDATE()
 )
 
 insert into dbo.TblPasajero
@@ -93,9 +93,9 @@ values(
 '2014-12-22',
 '88811809',
 'aespinozac@gmail.com',
-1,
+13,
 'respinoza',
-'2021-10-26'
+GETDATE()
 )
 
 INSERT INTO DBO.TblAeropuerto(
@@ -109,7 +109,7 @@ VALUES(
 'Aeropuerto Internacional Augusto Cesar Sandino',
 1,
 1,
-'2021-10-26',
+GETDATE(),
 'respinoza'
 )
 
@@ -124,7 +124,7 @@ VALUES(
 'Bluefields International Airport',
 1,
 1,
-'2021-10-26',
+GETDATE(),
 'respinoza'
 )
 
@@ -139,7 +139,7 @@ VALUES(
 'Aeropuerto Internacional Juan Santamaría',
 2,
 1,
-'2021-10-26',
+GETDATE(),
 'respinoza'
 )
 
@@ -154,7 +154,7 @@ VALUES(
 'Guanacaste Airport costa Rica',
 2,
 1,
-'2021-10-26',
+GETDATE(),
 'respinoza'
 )
 
@@ -169,7 +169,7 @@ VALUES(
 'Aeropuerto Internacional de Tocumen',
 3,
 1,
-'2021-10-26',
+GETDATE(),
 'respinoza'
 )
 

@@ -22,6 +22,10 @@ namespace App_Vuelos_UI.Seguridad
         {
             string usuario = this.txtUsuario.Text;
             string contrasenia = this.txtContrasenia.Text;
+
+            FrmMenu fr = new FrmMenu();
+            this.Hide();
+            fr.Show();
         }
     }
 }
