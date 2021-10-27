@@ -22,7 +22,7 @@ namespace App_Vuelos_UI.Seguridad
 
         private void cmdIngresar_Click(object sender, EventArgs e)
         {
-            string con = CONEXION.ConexionBD.ObtenerConexion();
+            var con = CONEXION.ConexionBD.ObtenerConexion();
             //string usuario = this.txtUsuario.Text;
             string contrasenia = this.txtContrasenia.Text;
 

@@ -40,10 +40,15 @@ namespace App_Vuelos_UI.Seguridad
             this.barButtonPais = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonAerolineas = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonVuelo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPasajero = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,13 +77,16 @@ namespace App_Vuelos_UI.Seguridad
             this.barEditItem3,
             this.barButtonPais,
             this.barButtonAerolineas,
-            this.barButtonVuelo});
+            this.barButtonVuelo,
+            this.btnPasajero});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 11;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage3,
             this.ribbonPage2,
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage4});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageEdit1,
             this.repositoryItemPictureEdit1,
@@ -145,6 +153,28 @@ namespace App_Vuelos_UI.Seguridad
             this.barButtonVuelo.Name = "barButtonVuelo";
             this.barButtonVuelo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonVuelo_ItemClick);
             // 
+            // btnPasajero
+            // 
+            this.btnPasajero.Caption = "Pasajero";
+            this.btnPasajero.Id = 10;
+            this.btnPasajero.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnPasajero.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnPasajero.Name = "btnPasajero";
+            this.btnPasajero.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPasajero_ItemClick);
+            // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3});
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Registro";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnPasajero);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Registro";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -171,6 +201,18 @@ namespace App_Vuelos_UI.Seguridad
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonAerolineas);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Alta de catalogos";
+            // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup4});
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "ribbonPage4";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // repositoryItemPictureEdit1
             // 
@@ -201,7 +243,7 @@ namespace App_Vuelos_UI.Seguridad
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "FrmMenu";
+            this.Text = "Menú principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
@@ -232,5 +274,10 @@ namespace App_Vuelos_UI.Seguridad
         private DevExpress.XtraBars.BarButtonItem barButtonAerolineas;
         private DevExpress.XtraBars.BarButtonItem barButtonVuelo;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit2;
+        private DevExpress.XtraBars.BarButtonItem btnPasajero;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

@@ -18,7 +18,8 @@ CREATE OR ALTER PROCEDURE GuardarPasajero
 @Telefono VARCHAR(20) NULL,
 @Email VARCHAR(50) NULL,
 @IdPais INT,
-@UsuarioCreacion VARCHAR(50)
+@UsuarioCreacion VARCHAR(50),
+@Id_Pais INT OUTPUT
 AS
 BEGIN
 	BEGIN TRY
@@ -48,7 +49,8 @@ BEGIN
 			@IdPais,
 			@UsuarioCreacion,
 			GETDATE()
-			)
+			) 
+			SELECT @Id_Pais = SCOPE_IDENTITY() 
 		COMMIT TRANSACTION;
 	END TRY
 	BEGIN CATCH

@@ -32,5 +32,14 @@ namespace App_Vuelos_UI.Seguridad
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
         }
+
+        private void btnPasajero_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //Invocar Formulario
+            FrmPasajero frm = FrmPasajero.instance();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
     }
 }

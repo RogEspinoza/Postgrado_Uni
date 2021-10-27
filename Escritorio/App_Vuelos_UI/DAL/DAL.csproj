@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dalPasajero.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="PaisDAL.cs" />
+    <Compile Include="PasajeroDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
