@@ -120,6 +120,10 @@
       <Project>{4427fc24-5dd1-450d-8857-99831e0aa6dc}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CONEXION\CONEXION.csproj">
+      <Project>{d6c68925-cdc7-4bb0-8d9c-d221bac75adb}</Project>
+      <Name>CONEXION</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ENTIDAD\ENTIDAD.csproj">
       <Project>{8b0dc510-4a00-437f-ae93-8ccec4ea1070}</Project>
       <Name>ENTIDAD</Name>

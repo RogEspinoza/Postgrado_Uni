@@ -8,7 +8,7 @@ namespace DAL
         public static string ObtenerConexion()
         {
             //SqlConnection cn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RocedesCS"].ConnectionString);
-            string cn = ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
+            string cn = ConfigurationManager.ConnectionStrings["ConexionBDVuelos"].ConnectionString;
             return cn;
         }
     }

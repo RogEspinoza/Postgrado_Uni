@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using CONEXION;
 
 namespace App_Vuelos_UI.Seguridad
 {
@@ -20,7 +22,8 @@ namespace App_Vuelos_UI.Seguridad
 
         private void cmdIngresar_Click(object sender, EventArgs e)
         {
-            string usuario = this.txtUsuario.Text;
+            string con = CONEXION.ConexionBD.ObtenerConexion();
+            //string usuario = this.txtUsuario.Text;
             string contrasenia = this.txtContrasenia.Text;
 
             FrmMenu fr = new FrmMenu();
