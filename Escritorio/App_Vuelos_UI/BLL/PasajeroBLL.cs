@@ -11,8 +11,13 @@ namespace BLL
     public class PasajeroBLL
     {
         PasajeroDAL pasajero = new PasajeroDAL();
-        public bool GuardarPasajero(Pasajero p ) {
+        public int GuardarPasajero(Pasajero p ) {
             return pasajero.GuardarPasajero(p);
+        }
+
+        public Pasajero ObtenerPasajeroId(int Id)
+        {
+            return pasajero.ObtenerPasajeroId(Id);
         }
     }
 }

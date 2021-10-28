@@ -36,6 +36,10 @@ namespace App_Vuelos_UI.Seguridad
                 this.Hide();
                 fr.Show();
             }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña invalidos", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }

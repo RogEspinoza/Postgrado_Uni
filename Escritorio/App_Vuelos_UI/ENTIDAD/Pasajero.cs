@@ -22,5 +22,7 @@ namespace ENTIDAD
         public DateTime FechaCreacion { get; set; }
         public string UsuarioModificacion { get; set; }
         public DateTime FechaModificacion { get; set; }
-	}
+        public string NombreCompleto { get; set; }
+        public string NombrePais { get; set; }
+    }
 }

@@ -20,6 +20,9 @@ namespace App_Vuelos_UI.Operaciones
         PasajeroBLL pasajero = new PasajeroBLL();
         //Instanciar una unica vez el formulario
         private static FrmPasajero Childinstance = null;
+        private DataTable dt;
+        private Pasajero oPasajero;
+
         public FrmPasajero()
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace App_Vuelos_UI.Operaciones
         private void FrmPasajero_Load(object sender, EventArgs e)
         {
             this.CargarCombo();
+            this.CargarColumnasGrid();
         }
         public static FrmPasajero instance()
         {
@@ -41,57 +45,121 @@ namespace App_Vuelos_UI.Operaciones
 
         private void CargarCombo()
         {
-            //cmbPais.Items.Insert(0, "Seleccionar");
             cmbPais.DataSource = oPais.ObtenerPais();
             cmbPais.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPais.DisplayMember = "IdPais";
+            cmbPais.ValueMember = "IdPais";
             cmbPais.DisplayMember = "NombrePais";
-
-
-            comboBox1.DataSource = oPais.ObtenerPais();
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.DisplayMember = "IdPais";
-            comboBox1.DisplayMember = "NombrePais";
+            cmbPais.Text = "--Seleccione--";
         }
 
         private void CmdGuardar_Click(object sender, EventArgs e)
         {
-            
-            bool exito = false;
-            Pasajero p = new Pasajero();
-            p.PrimerNombre = this.txtPnombre.Text;
-            p.PrimerApellido = this.txtPapellido.Text;
-            p.SegundoNombre = this.txtSnombre.Text;
-            p.SegundoApellido = this.txtSapellido.Text;
-            p.FechaNacimiento = this.dtpFechaNacimiento.Value;
-            p.NoIdentificacion = this.txtIdentificacion.Text;
-            p.Email = this.txtEmail.Text;
-            p.IdPais = Convert.ToInt32( this.cmbPais.SelectedItem.ToString());
-            p.Telefono = this.txtTelefono.Text;
-            p.UsuarioCreacion = "respinoza";
-            p.FechaCreacion = DateTime.Now;
-
-            exito = pasajero.GuardarPasajero(p);
-            if (exito)
+            oPasajero = new Pasajero();
+            var fila = (DataRowView)cmbPais.SelectedItem;
+            LimpiarValidadores();
+            if (ValidarFormulario())
             {
-                MessageBox.Show("Se realizo el guardado sastifactoriamente", "Exito");
+                int exito = 0;
+                Pasajero p = new Pasajero();
+                p.PrimerNombre = this.txtPnombre.Text;
+                p.PrimerApellido = this.txtPapellido.Text;
+                p.SegundoNombre = this.txtSnombre.Text;
+                p.SegundoApellido = this.txtSapellido.Text;
+                p.FechaNacimiento = this.dtpFechaNacimiento.Value;
+                p.NoIdentificacion = this.txtIdentificacion.Text;
+                p.Email = this.txtEmail.Text;
+                p.IdPais = Convert.ToInt32(fila.Row.ItemArray[0]);
+                p.Telefono = this.txtTelefono.Text;
+                p.UsuarioCreacion = "respinoza";
+                p.FechaCreacion = DateTime.Now;
+
+                exito = pasajero.GuardarPasajero(p);
+                if (exito > 0)
+                {
+                    MessageBox.Show("Se realizo el guardado sastifactoriamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    p = null;
+                    this.LimpiarControles();
+                    this.oPasajero = pasajero.ObtenerPasajeroId(exito);
+                    this.CargarDataGrid(oPasajero);
+                }
+                else
+                {
+                    MessageBox.Show("Ah ocurrido un error inesperado...!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Ah ocurrido un error inesperado...!", "Error");
-            }
-
-
-
         }
 
-        private void cmbPais_SelectedValueChanged(object sender, EventArgs e)
+        private void LimpiarControles()
         {
-            int selectedIndex = cmbPais.SelectedIndex;
-            Object selectedItem = cmbPais.ValueMember.ToString();
+            this.txtPnombre.Text = string.Empty;
+            this.txtPapellido.Text = string.Empty;
+            this.txtSnombre.Text = string.Empty;
+            this.txtSapellido.Text = string.Empty;
+            this.txtTelefono.Text = string.Empty;
+            this.txtIdentificacion.Text = string.Empty;
+            this.txtEmail.Text = string.Empty;
+        }
 
-            //MessageBox.Show("Selected Item Text: " + selectedItem.ToString() + "\n" +
-            //                "Index: " + selectedIndex.ToString());
+        private bool ValidarFormulario()
+        {
+            bool exito = true;
+            if (txtPnombre.Text == "")
+            {
+                exito = false;
+                pError.SetError(txtPnombre, "Requerido");
+            }
+            if (txtPapellido.Text=="")
+            {
+                exito = false;
+                pError.SetError(txtPapellido, "Requerido");
+            }
+            if (txtTelefono.Text=="")
+            {
+                exito = false;
+                pError.SetError(txtTelefono, "Requerido");
+            }
+            if (txtEmail.Text == "")
+            {
+                exito = false;
+                pError.SetError(txtEmail, "Requerido");
+            }
+            if (cmbPais.SelectedIndex < 0)
+            {
+                exito = false;
+                pError.SetError(cmbPais, "Requerido");
+            }
+            return exito;
+        }
+
+        private void LimpiarValidadores()
+        {
+            pError.SetError(txtPnombre, "");
+            pError.SetError(txtPapellido, "");
+            pError.SetError(txtSnombre, "");
+            pError.SetError(txtSapellido, "");
+            pError.SetError(txtTelefono, "");
+            pError.SetError(txtEmail, "");
+        }
+
+        private void CargarColumnasGrid()
+        {
+            dt = new DataTable();
+            dt.Columns.Add("Identificacion");
+            dt.Columns.Add("Nombre Completo");
+            dt.Columns.Add("Fecha de Nacimiento");
+            dt.Columns.Add("Email");
+            GridPasajero.DataSource = dt;
+        }
+        private void CargarDataGrid(Pasajero p)
+        {
+            DataRow fila = dt.NewRow();
+            fila["Identificacion"] = p.NoIdentificacion;
+            fila["Nombre Completo"] = p.NombreCompleto;
+            fila["Fecha de Nacimiento"] = p.FechaNacimiento;
+            fila["Email"] = p.Email;
+
+            dt.Rows.Add(fila);
+
         }
     }
 }

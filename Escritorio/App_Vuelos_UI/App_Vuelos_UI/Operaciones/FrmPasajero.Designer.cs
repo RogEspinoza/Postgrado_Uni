@@ -29,6 +29,7 @@ namespace App_Vuelos_UI.Operaciones
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPnombre = new System.Windows.Forms.TextBox();
@@ -50,9 +51,12 @@ namespace App_Vuelos_UI.Operaciones
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.CmdGuardar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.GridPasajero = new System.Windows.Forms.DataGridView();
+            this.pError = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridPasajero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pError)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -76,12 +80,12 @@ namespace App_Vuelos_UI.Operaciones
             this.flowLayoutPanel1.Controls.Add(this.label9);
             this.flowLayoutPanel1.Controls.Add(this.txtEmail);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel1.Controls.Add(this.GridPasajero);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(556, 355);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(816, 355);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -89,21 +93,22 @@ namespace App_Vuelos_UI.Operaciones
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Primer Nombre:";
+            this.label1.Text = "*Primer Nombre:";
             // 
             // txtPnombre
             // 
-            this.txtPnombre.Location = new System.Drawing.Point(100, 13);
+            this.txtPnombre.Location = new System.Drawing.Point(106, 13);
+            this.txtPnombre.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.txtPnombre.Name = "txtPnombre";
-            this.txtPnombre.Size = new System.Drawing.Size(168, 21);
+            this.txtPnombre.Size = new System.Drawing.Size(271, 21);
             this.txtPnombre.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(274, 10);
+            this.label2.Location = new System.Drawing.Point(400, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 2;
@@ -111,9 +116,9 @@ namespace App_Vuelos_UI.Operaciones
             // 
             // txtSnombre
             // 
-            this.txtSnombre.Location = new System.Drawing.Point(373, 13);
+            this.txtSnombre.Location = new System.Drawing.Point(499, 13);
             this.txtSnombre.Name = "txtSnombre";
-            this.txtSnombre.Size = new System.Drawing.Size(168, 21);
+            this.txtSnombre.Size = new System.Drawing.Size(271, 21);
             this.txtSnombre.TabIndex = 3;
             // 
             // label3
@@ -121,21 +126,22 @@ namespace App_Vuelos_UI.Operaciones
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Primer Apellido:";
+            this.label3.Text = "*Primer Apellido:";
             // 
             // txtPapellido
             // 
-            this.txtPapellido.Location = new System.Drawing.Point(100, 40);
+            this.txtPapellido.Location = new System.Drawing.Point(106, 40);
+            this.txtPapellido.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.txtPapellido.Name = "txtPapellido";
-            this.txtPapellido.Size = new System.Drawing.Size(168, 21);
+            this.txtPapellido.Size = new System.Drawing.Size(271, 21);
             this.txtPapellido.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(274, 37);
+            this.label4.Location = new System.Drawing.Point(400, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 6;
@@ -143,9 +149,9 @@ namespace App_Vuelos_UI.Operaciones
             // 
             // txtSapellido
             // 
-            this.txtSapellido.Location = new System.Drawing.Point(373, 40);
+            this.txtSapellido.Location = new System.Drawing.Point(499, 40);
             this.txtSapellido.Name = "txtSapellido";
-            this.txtSapellido.Size = new System.Drawing.Size(168, 21);
+            this.txtSapellido.Size = new System.Drawing.Size(271, 21);
             this.txtSapellido.TabIndex = 7;
             // 
             // label5
@@ -153,33 +159,33 @@ namespace App_Vuelos_UI.Operaciones
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Identificación:";
+            this.label5.Text = "  Identificación:";
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(101, 67);
-            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtIdentificacion.Location = new System.Drawing.Point(106, 67);
+            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(9, 3, 20, 3);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(168, 21);
+            this.txtIdentificacion.Size = new System.Drawing.Size(271, 21);
             this.txtIdentificacion.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(275, 64);
+            this.label6.Location = new System.Drawing.Point(400, 64);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.Size = new System.Drawing.Size(97, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Fecha Nacimiento";
+            this.label6.Text = "*Fecha Nacimiento";
             // 
             // dtpFechaNacimiento
             // 
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(372, 67);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(503, 67);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(169, 21);
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(267, 21);
             this.dtpFechaNacimiento.TabIndex = 11;
             // 
             // label7
@@ -187,54 +193,53 @@ namespace App_Vuelos_UI.Operaciones
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(13, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Telefono:";
+            this.label7.Text = "*Telefono:";
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(99, 94);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.txtTelefono.Location = new System.Drawing.Point(105, 94);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(30, 3, 20, 3);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(168, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(271, 21);
             this.txtTelefono.TabIndex = 13;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(273, 91);
+            this.label8.Location = new System.Drawing.Point(399, 91);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Pais:";
+            this.label8.Text = "*Pais:";
             // 
             // cmbPais
             // 
             this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Location = new System.Drawing.Point(371, 94);
+            this.cmbPais.Location = new System.Drawing.Point(503, 94);
             this.cmbPais.Margin = new System.Windows.Forms.Padding(65, 3, 3, 3);
             this.cmbPais.Name = "cmbPais";
-            this.cmbPais.Size = new System.Drawing.Size(170, 21);
+            this.cmbPais.Size = new System.Drawing.Size(267, 21);
             this.cmbPais.TabIndex = 15;
             this.cmbPais.TabStop = false;
             this.cmbPais.Text = "--Seleccione--";
-            this.cmbPais.SelectedValueChanged += new System.EventHandler(this.cmbPais_SelectedValueChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(13, 118);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 16;
-            this.label9.Text = "E-Mail:";
+            this.label9.Text = "*E-Mail:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(100, 121);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(45, 3, 3, 3);
+            this.txtEmail.Location = new System.Drawing.Point(106, 121);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(45, 3, 20, 3);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(168, 21);
+            this.txtEmail.Size = new System.Drawing.Size(271, 21);
             this.txtEmail.TabIndex = 17;
             // 
             // flowLayoutPanel2
@@ -242,7 +247,7 @@ namespace App_Vuelos_UI.Operaciones
             this.flowLayoutPanel2.Controls.Add(this.CmdGuardar);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(13, 148);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(528, 78);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(789, 45);
             this.flowLayoutPanel2.TabIndex = 18;
             // 
             // CmdGuardar
@@ -257,19 +262,24 @@ namespace App_Vuelos_UI.Operaciones
             this.CmdGuardar.UseVisualStyleBackColor = false;
             this.CmdGuardar.Click += new System.EventHandler(this.CmdGuardar_Click);
             // 
-            // comboBox1
+            // GridPasajero
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 232);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 19;
+            this.GridPasajero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridPasajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridPasajero.Location = new System.Drawing.Point(13, 199);
+            this.GridPasajero.Name = "GridPasajero";
+            this.GridPasajero.Size = new System.Drawing.Size(789, 150);
+            this.GridPasajero.TabIndex = 19;
+            // 
+            // pError
+            // 
+            this.pError.ContainerControl = this;
             // 
             // FrmPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 374);
+            this.ClientSize = new System.Drawing.Size(839, 374);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FrmPasajero";
             this.Text = "Ingreso de pasajeros";
@@ -277,6 +287,8 @@ namespace App_Vuelos_UI.Operaciones
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridPasajero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,6 +316,7 @@ namespace App_Vuelos_UI.Operaciones
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button CmdGuardar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider pError;
+        private System.Windows.Forms.DataGridView GridPasajero;
     }
 }
