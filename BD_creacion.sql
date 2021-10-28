@@ -200,6 +200,31 @@ BEGIN
 END
 GO
 
+---------CREACION DE TABLA USUARIO
+IF OBJECT_ID('Usuario') IS NULL
+BEGIN
+	CREATE TABLE Usuario(
+		IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
+		NombreUsuario VARCHAR(100) NOT NULL,
+		Clave VARCHAR(20) NOT NULL,
+		PrimerNombre VARCHAR(50) NOT NULL,
+		PrimerApellido VARCHAR(50) NOT NULL,
+		SegundoNombre VARCHAR(50) ,
+		SegundoApellido VARCHAR(50),
+		Identificacion VARCHAR(20),
+		Telefono VARCHAR(50),
+		email VARCHAR(50),
+		EsActivo BIT NOT NULL,
+		Pregunta NVARCHAR(100),
+		Respuesta NVARCHAR(100),
+		UsuarioCreacion VARCHAR(50) NOT NULL,
+		FechaCreacion DATETIME NOT NULL,
+		UsuarioModificacion VARCHAR(50),
+		FechaModificacion DATETIME
+	)
+END
+GO
+
 --PROCEDIMIENTOS ALMACENADOS
 --CRUD PAIS
 CREATE PROCEDURE SP_GuardarPais

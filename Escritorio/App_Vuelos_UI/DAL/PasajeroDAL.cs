@@ -7,37 +7,42 @@ using System.Data;
 using System.Data.SqlClient;
 using ENTIDAD;
 using CONEXION;
+using System.Configuration;
 
 namespace DAL
 {
     public class PasajeroDAL
     {
-        //public DataTable ObtenerPasajero()
-        //{
-        //    var dt = new DataTable();
-        //    try
-        //    {
-        //        dt = ConexionBD.Leer();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new System.ArgumentException(ex.Message);
-        //    }
-        //}
-
-        public int GuardarPasajero(Pasajero p)
+        string cnn = ConfigurationManager.ConnectionStrings["ConexionBDVuelos"].ConnectionString;
+        public bool GuardarPasajero(Pasajero p)
         {
-            int exito = 0;
-            try
+            bool exito = false;
+            Usuario user = new Usuario();
+            SqlConnection conexion = ConexionBD.ObtenerConexion();
+            using (SqlConnection sql = new SqlConnection(cnn))
             {
-                exito=ConexionBD.Guardar()
+                using (SqlCommand command = new SqlCommand("GuardarPasajero", sql))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@PrimerNombre", p.PrimerNombre);
+                    command.Parameters.AddWithValue("@PrimerApellido", p.PrimerApellido);
+                    command.Parameters.AddWithValue("@SegundoNombre", p.SegundoNombre);
+                    command.Parameters.AddWithValue("@SegundoApellido", p.SegundoApellido);
+                    command.Parameters.AddWithValue("@Identificacion", p.NoIdentificacion);
+                    command.Parameters.AddWithValue("@FechaNacimiento", p.FechaNacimiento);
+                    command.Parameters.AddWithValue("@Telefono", p.Telefono);
+                    command.Parameters.AddWithValue("@Email", p.Email);
+                    command.Parameters.AddWithValue("@IdPais", p.IdPais);
+                    command.Parameters.AddWithValue("@UsuarioCreacion", p.UsuarioCreacion);
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    sql.Open();
+                    command.ExecuteNonQuery();
+                    exito = (bool)command.ExecuteScalar();
+                    //command = null;
+                    sql.Close();
+                }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
+            return exito;
         }
     }
 }

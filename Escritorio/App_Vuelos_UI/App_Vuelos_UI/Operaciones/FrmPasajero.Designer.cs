@@ -50,6 +50,7 @@ namespace App_Vuelos_UI.Operaciones
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.CmdGuardar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@ namespace App_Vuelos_UI.Operaciones
             this.flowLayoutPanel1.Controls.Add(this.label9);
             this.flowLayoutPanel1.Controls.Add(this.txtEmail);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -216,6 +218,7 @@ namespace App_Vuelos_UI.Operaciones
             this.cmbPais.TabIndex = 15;
             this.cmbPais.TabStop = false;
             this.cmbPais.Text = "--Seleccione--";
+            this.cmbPais.SelectedValueChanged += new System.EventHandler(this.cmbPais_SelectedValueChanged);
             // 
             // label9
             // 
@@ -253,6 +256,14 @@ namespace App_Vuelos_UI.Operaciones
             this.CmdGuardar.Text = "Guardar";
             this.CmdGuardar.UseVisualStyleBackColor = false;
             this.CmdGuardar.Click += new System.EventHandler(this.CmdGuardar_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(13, 232);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 19;
             // 
             // FrmPasajero
             // 
@@ -293,5 +304,6 @@ namespace App_Vuelos_UI.Operaciones
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button CmdGuardar;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
