@@ -22,11 +22,15 @@ namespace Site_Reserva_Vuelos
             bundles.Add(new ScriptBundle("~/bundles/popper").Include(
                       "~/Scripts/umd/popper.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.bundle.js"));
+            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/fontawesome.min.css",
+                      "~/Content/solid.min.css",
+                      "~/Content/regular.min.css",
+                      "~/Recursos/Css/default.css",
                       "~/Content/site.css"));
         }
     }

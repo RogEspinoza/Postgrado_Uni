@@ -3,37 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - NicaVuelos</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <header>
+        <div class="container-fluid bg-primary p-5">
+            <div class="row">
+                <div class="col-12 col-xs-12 col-sm-8 col-md-6 col-lg-8">
+                    <h1 class="display-4 text-light">Deseas Reservar Vuelos?</h1>
+                    <p class="lead text-light">Ahora es mas rapido y sencillo</p>
+                    <hr class="my-4 text-light">
+                    <p class="text-light">Puedes reservar tu vuelo desde la comunidad de su casa, accediendo a nuestro sitio web o desde nuestra app, disponible en Play Store.</p>
+                    <a class="btn btn-light btn-lg" href="#" role="button"> <i class="fa fa-plus"></i> Leer mas</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li> <i class="fa fa-home fa-2x"></i> @Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
+                <div class="col-12 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <img class="img_responsive" src="~/Recursos/Images/orion-fly-aviones.png" alt="img" />
                 </div>
             </div>
-        </div>*@
+        </div>
+    </header>
     <div class="container ">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <footer class="page-footer font-small bg-secondary darken-3">
+        <div class="footer-copyright text-center py-3">
+            <p class="text-light">&copy; @DateTime.Now.Year - NicaVuelos</p>
+        </div>
+
+    </footer>
+    <!-- Footer -->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/popper")
