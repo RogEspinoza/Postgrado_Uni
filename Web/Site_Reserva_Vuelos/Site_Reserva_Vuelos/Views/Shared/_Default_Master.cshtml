@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>_Default_Master</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/css/datatable")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +50,9 @@
     <div>
     </div>
     <section>
-        @RenderBody()
+        <div class="container">
+            @RenderBody()
+        </div>
     </section>
     <footer class="page-footer font-small bg-secondary darken-3">
         <div class="footer-copyright text-center py-3">
@@ -61,6 +64,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/popper")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datatable")    
     @RenderSection("scripts", required: false)
 
 </body>
