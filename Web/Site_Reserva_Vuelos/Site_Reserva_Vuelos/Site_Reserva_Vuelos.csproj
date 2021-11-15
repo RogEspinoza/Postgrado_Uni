@@ -166,6 +166,7 @@
     <Content Include="Recursos\Css\default.css" />
     <Content Include="Recursos\Images\orion-fly-aviones.png" />
     <Content Include="Recursos\Images\vuelo.ico" />
+    <Content Include="Recursos\Js\tarifa.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -346,7 +347,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Recursos\Js\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
