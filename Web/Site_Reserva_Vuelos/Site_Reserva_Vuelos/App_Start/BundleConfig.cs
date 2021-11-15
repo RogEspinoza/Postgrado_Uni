@@ -23,7 +23,16 @@ namespace Site_Reserva_Vuelos
                       "~/Scripts/umd/popper.js"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js"
+                      ));
+
+            bundles.Add(new Bundle("~/bundles/datatable").Include(
+                      "~/Scripts/jquery_datatable/datatable.min.js"
+                      ));
+
+            bundles.Add(new StyleBundle("~/bundles/css/datatable").Include(
+                      "~/Content/jquery_datatable/datatables.min.css"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -31,7 +40,8 @@ namespace Site_Reserva_Vuelos
                       "~/Content/solid.min.css",
                       "~/Content/regular.min.css",
                       "~/Recursos/Css/default.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css"
+                      ));
         }
     }
 }
