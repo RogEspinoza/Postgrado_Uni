@@ -5,6 +5,8 @@ namespace DAL
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Data.Entity;
+    using System.Linq;
 
     [Table("TblTarifa")]
     public partial class TblTarifa
@@ -40,5 +42,23 @@ namespace DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblVuelo> TblVuelo { get; set; }
+
+        public List<TblTarifa>ObtenerListaTarifas()
+        {
+            try
+            {
+                using (var cn =new BDVuelos())
+                {
+                    //return cn.TblTarifa.ToList();
+                    return cn.Database.SqlQuery<TblTarifa>("ObtenerListaTarifa").ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -9,10 +9,29 @@
         //Object.keys(self.events).forEach(function (e) {
         //    $(e.split(' ')[1]).bind(e.split(' ')[0], self[self.events[e]]);
         //});
-        console.log('se ha cargado correctamente')
+        //console.log('se ha cargado correctamente');
+        Tarifa.ObtenerListatarifa();
     },
 
     //PETICIONES AJAX
+    ObtenerListatarifa() {
+        return JSON.parse($.ajax({
+            type: "GET",
+            url:'/Tarifas/ObtenerTarifas',
+            data: '',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            beforeSend: () => {
+                console.log('en espera');
+            },
+            success: (d) => {
+                console.log(d);
+            },
+            complete: () => {
+                console.log('termina proceso');
+            }
+        }).responseText);
+    }
     //ObtenerListaServicios: function (token) {
     //    return JSON.parse($.ajax({
     //        type: "POST",

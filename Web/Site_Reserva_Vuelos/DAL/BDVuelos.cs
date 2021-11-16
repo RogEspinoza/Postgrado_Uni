@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace DAL
 {
-    public partial class Model1 : DbContext
+    public partial class BDVuelos : DbContext
     {
-        public Model1()
+        public BDVuelos()
             : base("name=BDVuelos")
         {
         }

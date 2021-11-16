@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DAL;
 
 namespace Site_Reserva_Vuelos.Controllers
 {
     public class TarifasController : Controller
     {
+        TblTarifa tarifa = new TblTarifa();
         // GET: Tarifas
         public ActionResult Tarifa()
         {
@@ -18,6 +20,11 @@ namespace Site_Reserva_Vuelos.Controllers
         public ActionResult Details(int id)
         {
             return View();
+        }
+
+        public ActionResult ObtenerTarifas()
+        {
+            return View(tarifa.ObtenerListaTarifas());
         }
 
         // GET: Tarifas/Create
