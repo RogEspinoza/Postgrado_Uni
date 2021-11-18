@@ -43,11 +43,11 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblVuelo> TblVuelo { get; set; }
 
-        public List<TblTarifa>ObtenerListaTarifas()
+        public List<TblTarifa> ObtenerListaTarifas()
         {
             try
             {
-                using (var cn =new BDVuelos())
+                using (var cn = new BDVuelos())
                 {
                     //return cn.TblTarifa.ToList();
                     return cn.Database.SqlQuery<TblTarifa>("ObtenerListaTarifa").ToList();

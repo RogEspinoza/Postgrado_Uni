@@ -18,6 +18,7 @@
         return JSON.parse($.ajax({
             type: "GET",
             url:'/Tarifas/ObtenerTarifas',
+            //url:' @Url.Action("ObtenerTarifas")',
             data: '',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
